@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - ImageV</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        dark: '#1F2937',
+                        light: '#F3F4F6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+
+    <!-- Simple Nav -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm dark:bg-gray-800/80 transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex items-center gap-2">
+                    <img src="assets/logo.png" alt="ImageV Logo" class="w-8 h-8 rounded-lg shadow-sm">
+                    <span class="text-xl font-bold text-primary">ImageV</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <button id="lang-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition font-medium text-sm">EN</button>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                        <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow py-12 px-4 sm:px-6 lg:px-8">
+        <article id="policy-content" class="max-w-4xl mx-auto bg-white dark:bg-gray-800 p-8 sm:p-12 rounded-2xl shadow-sm prose dark:prose-invert prose-blue transition-colors duration-300">
+            <!-- Content will be injected by JS based on language -->
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-sm text-gray-500 border-t border-gray-200 dark:border-gray-800 dark:bg-gray-900 transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4">
+            <p>&copy; 2026 ImageV. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const content = {
+            'zh-CN': {
+                title: '隐私政策',
+                intro: '感谢您使用「ImageV」（以下简称“本应用”）。<br>我们非常重视您的隐私。本应用是一款专注于本地图片浏览的工具，不提供图片编辑功能，不进行数据收集或云端存储。',
+                desc: '本隐私政策用于说明我们如何处理您的信息。',
+                sections: [
+                    {
+                        h2: '一、我们收集的信息',
+                        p: '<strong>本应用不会收集、存储或上传任何个人信息。</strong>',
+                        ul: [
+                            '❌ 不需要注册或登录',
+                            '❌ 不收集姓名、邮箱、电话等个人信息',
+                            '❌ 不收集设备标识符',
+                            '❌ 不收集位置数据',
+                            '❌ 不进行行为分析或广告追踪',
+                            '❌ 不集成第三方广告 SDK',
+                            '❌ 不集成第三方统计 SDK'
+                        ]
+                    },
+                    {
+                        h2: '二、图片与文件访问',
+                        p: '本应用仅在以下情况下访问您的文件：',
+                        ul: [
+                            '当您主动选择文件或文件夹时',
+                            '当您授权访问某个目录时'
+                        ],
+                        p2: '图片处理说明：',
+                        ul2: [
+                            '所有图片均在您的设备本地读取与显示',
+                            '不会上传至服务器',
+                            '不会修改原始文件',
+                            '不会创建隐藏副本',
+                            '不会同步到云端'
+                        ],
+                        p3: '本应用为 <strong>只读模式</strong> ，不提供编辑或覆盖保存功能。'
+                    },
+                    {
+                        h2: '三、EXIF 与元数据',
+                        p: '当您查看图片时，本应用会在本地读取图片中包含的 EXIF 或其他元数据信息，仅用于界面展示。',
+                        ul: [
+                            '不会分析您的拍摄习惯',
+                            '不会存储这些数据',
+                            '不会上传任何元数据'
+                        ]
+                    },
+                    {
+                        h2: '四、网络访问',
+                        p: '本应用：',
+                        ul: [
+                            '不依赖远程服务器',
+                            '不需要网络连接即可使用',
+                            '不会主动发送任何数据至互联网'
+                        ],
+                        p2: '如未来版本增加联网功能，我们将更新本隐私政策。'
+                    },
+                    {
+                        h2: '五、第三方服务',
+                        p: '当前版本：',
+                        ul: [
+                            '不使用第三方广告服务',
+                            '不使用第三方数据分析服务',
+                            '不与任何第三方共享数据'
+                        ]
+                    },
+                    {
+                        h2: '六、儿童隐私',
+                        p: '本应用不会收集任何信息，因此不涉及儿童个人数据收集问题。'
+                    },
+                    {
+                        h2: '七、数据安全',
+                        p: '由于本应用不收集、不存储、不传输个人数据，因此不存在服务器端数据泄露风险。',
+                        p2: '您的所有图片仅存储在您自己的设备中。'
+                    },
+                    {
+                        h2: '八、政策更新',
+                        p: '如果未来版本在功能上发生变化（例如增加云同步或统计功能），我们将更新本隐私政策并明确说明数据处理方式。'
+                    },
+                    {
+                        h2: '九、联系我们',
+                        p: '如您对本隐私政策有任何疑问，请通过以下方式联系：',
+                        p2: '邮箱：<a href="mailto:shizengzhou@outlook.com" class="text-primary hover:underline">shizengzhou@outlook.com</a>'
+                    }
+                ]
+            },
+            'en': {
+                title: 'Privacy Policy',
+                intro: 'Thank you for using "ImageV" (hereinafter referred to as "this App").<br>We take your privacy very seriously. This App is a tool focused on local image viewing, does not provide image editing functions, and does not perform data collection or cloud storage.',
+                desc: 'This Privacy Policy explains how we process your information.',
+                sections: [
+                    {
+                        h2: '1. Information We Collect',
+                        p: '<strong>This App does not collect, store, or upload any personal information.</strong>',
+                        ul: [
+                            '❌ No registration or login required',
+                            '❌ No collection of personal info like name, email, or phone',
+                            '❌ No collection of device identifiers',
+                            '❌ No collection of location data',
+                            '❌ No behavior analysis or ad tracking',
+                            '❌ No third-party ad SDKs integrated',
+                            '❌ No third-party analytics SDKs integrated'
+                        ]
+                    },
+                    {
+                        h2: '2. Image and File Access',
+                        p: 'This App only accesses your files in the following cases:',
+                        ul: [
+                            'When you actively select files or folders',
+                            'When you authorize access to a specific directory'
+                        ],
+                        p2: 'Image processing details:',
+                        ul2: [
+                            'All images are read and displayed locally on your device',
+                            'Will not be uploaded to servers',
+                            'Will not modify original files',
+                            'Will not create hidden copies',
+                            'Will not sync to the cloud'
+                        ],
+                        p3: 'This App is in <strong>Read-Only Mode</strong> and does not provide editing or overwrite-saving functions.'
+                    },
+                    {
+                        h2: '3. EXIF and Metadata',
+                        p: 'When you view an image, this App reads the EXIF or other metadata contained in the image locally for display purposes only.',
+                        ul: [
+                            'Will not analyze your shooting habits',
+                            'Will not store this data',
+                            'Will not upload any metadata'
+                        ]
+                    },
+                    {
+                        h2: '4. Network Access',
+                        p: 'This App:',
+                        ul: [
+                            'Does not rely on remote servers',
+                            'Can be used without an internet connection',
+                            'Does not actively send any data to the internet'
+                        ],
+                        p2: 'If future versions add internet-dependent features, we will update this Privacy Policy.'
+                    },
+                    {
+                        h2: '5. Third-party Services',
+                        p: 'Current version:',
+                        ul: [
+                            'Does not use third-party advertising services',
+                            'Does not use third-party data analysis services',
+                            'Does not share data with any third party'
+                        ]
+                    },
+                    {
+                        h2: '6. Children\'s Privacy',
+                        p: 'This App does not collect any information, so it does not involve the collection of children\'s personal data.'
+                    },
+                    {
+                        h2: '7. Data Security',
+                        p: 'Since this App does not collect, store, or transmit personal data, there is no risk of server-side data leakage.',
+                        p2: 'All your images are stored only on your own device.'
+                    },
+                    {
+                        h2: '8. Policy Updates',
+                        p: 'If future versions change in functionality (e.g., adding cloud sync or statistics), we will update this Privacy Policy and clearly explain how data is processed.'
+                    },
+                    {
+                        h2: '9. Contact Us',
+                        p: 'If you have any questions about this Privacy Policy, please contact us via:',
+                        p2: 'Email: <a href="mailto:shizengzhou@outlook.com" class="text-primary hover:underline">shizengzhou@outlook.com</a>'
+                    }
+                ]
+            }
+        };
+
+        const html = document.documentElement;
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const langToggleBtn = document.getElementById('lang-toggle');
+        const article = document.getElementById('policy-content');
+
+        // Theme initialization
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+        });
+
+        // Language initialization
+        let currentLang = localStorage.getItem('lang');
+        if (!currentLang) {
+            const browserLang = navigator.language || navigator.userLanguage;
+            currentLang = browserLang.startsWith('zh') ? 'zh-CN' : 'en';
+        }
+
+        function renderPolicy(lang) {
+            const data = content[lang];
+            let htmlString = `<h1 class="text-3xl font-bold mb-6">${data.title}</h1>`;
+            htmlString += `<p class="text-lg mb-4 text-gray-600 dark:text-gray-300">${data.intro}</p>`;
+            htmlString += `<p class="mb-8">${data.desc}</p><hr class="my-8 border-gray-200 dark:border-gray-700">`;
+
+            data.sections.forEach(section => {
+                htmlString += `<h2 class="text-2xl font-semibold mt-10 mb-4">${section.h2}</h2>`;
+                htmlString += `<p class="mb-4">${section.p}</p>`;
+                if (section.ul) {
+                    htmlString += `<ul class="list-none space-y-2 mb-4">`;
+                    section.ul.forEach(item => htmlString += `<li>${item}</li>`);
+                    htmlString += `</ul>`;
+                }
+                if (section.p2) htmlString += `<p class="mb-4">${section.p2}</p>`;
+                if (section.ul2) {
+                    htmlString += `<ul class="list-disc pl-5 space-y-2 mb-4">`;
+                    section.ul2.forEach(item => htmlString += `<li>${item}</li>`);
+                    htmlString += `</ul>`;
+                }
+                if (section.p3) htmlString += `<p class="mb-6">${section.p3}</p>`;
+            });
+
+            article.innerHTML = htmlString;
+            langToggleBtn.textContent = lang === 'zh-CN' ? 'EN' : '中';
+            html.setAttribute('lang', lang);
+            document.title = data.title + ' - ImageV';
+        }
+
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'zh-CN' ? 'en' : 'zh-CN';
+            localStorage.setItem('lang', currentLang);
+            renderPolicy(currentLang);
+        });
+
+        renderPolicy(currentLang);
+    </script>
+</body>
+</html>

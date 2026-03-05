@@ -27,6 +27,7 @@
                 'nav-features': '功能特点',
                 'nav-safety': '安全浏览',
                 'nav-gallery': '预览',
+                'nav-feedback': '反馈',
                 'nav-download': '购买',
                 'hero-title-1': '极简，专注',
                 'hero-title-2': '纯粹的看图体验',
@@ -53,6 +54,7 @@
                 'safety-l2': '不用担心一不小心修改了原图',
                 'safety-l3': '安心把设备交给老人或孩子浏览照片',
                 'gallery-title': '精彩预览',
+                'nav-privacy': '隐私政策',
                 'footer-slogan': '简单，极致，只为看图。',
                 'footer-copyright': '&copy; 2026 ImageV. All rights reserved.'
             },
@@ -60,6 +62,7 @@
                 'nav-features': 'Features',
                 'nav-safety': 'Safety',
                 'nav-gallery': 'Gallery',
+                'nav-feedback': 'Feedback',
                 'nav-download': 'Purchase',
                 'hero-title-1': 'Minimalist, Focused',
                 'hero-title-2': 'Pure Viewing Experience',
@@ -86,6 +89,7 @@
                 'safety-l2': 'No worry about accidentally modifying original files',
                 'safety-l3': 'Safely hand your device to elders or kids to browse photos',
                 'gallery-title': 'Gallery Preview',
+                'nav-privacy': 'Privacy Policy',
                 'footer-slogan': 'Simple, Ultimate, Just for Viewing.',
                 'footer-copyright': '&copy; 2026 ImageV. All rights reserved.'
             }
@@ -100,6 +104,15 @@
             background: linear-gradient(to right, #3B82F6, #8B5CF6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            padding-bottom: 0.2em; /* Ensure descenders like 'g' are not cut off */
+        }
+        /* Modal styles */
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            max-height: 90vh;
+            max-width: 90vw;
         }
     </style>
 </head>
@@ -117,6 +130,7 @@
                     <a href="#features" data-i18n="nav-features" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition">功能特点</a>
                     <a href="#safety" data-i18n="nav-safety" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition">安全浏览</a>
                     <a href="#gallery" data-i18n="nav-gallery" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition">预览</a>
+                    <a href="https://github.com/shizengzhou/image-v-feedback/issues" target="_blank" data-i18n="nav-feedback" class="text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition">反馈</a>
                 </div>
                 <div class="flex items-center space-x-4">
                      <!-- Language Toggle -->
@@ -258,27 +272,44 @@
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white" data-i18n="gallery-title">精彩预览</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <!-- Using local assets -->
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md hover:opacity-90 transition">
+                <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md hover:opacity-90 transition cursor-pointer" onclick="openModal('assets/1.jpg')">
                     <img src="assets/1.jpg" alt="Gallery Image 1" class="object-cover w-full h-full transform hover:scale-105 transition duration-500">
                 </div>
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md hover:opacity-90 transition">
+                <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md hover:opacity-90 transition cursor-pointer" onclick="openModal('assets/2.jpg')">
                     <img src="assets/2.jpg" alt="Gallery Image 2" class="object-cover w-full h-full transform hover:scale-105 transition duration-500">
                 </div>
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md hover:opacity-90 transition">
+                <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md hover:opacity-90 transition cursor-pointer" onclick="openModal('assets/3.jpg')">
                     <img src="assets/3.jpg" alt="Gallery Image 3" class="object-cover w-full h-full transform hover:scale-105 transition duration-500">
                 </div>
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md hover:opacity-90 transition">
+                <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md hover:opacity-90 transition cursor-pointer" onclick="openModal('assets/7.jpg')">
                     <img src="assets/7.jpg" alt="Gallery Image 4" class="object-cover w-full h-full transform hover:scale-105 transition duration-500">
                 </div>
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md hover:opacity-90 transition">
+                <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md hover:opacity-90 transition cursor-pointer" onclick="openModal('assets/8.jpg')">
                     <img src="assets/8.jpg" alt="Gallery Image 5" class="object-cover w-full h-full transform hover:scale-105 transition duration-500">
                 </div>
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md hover:opacity-90 transition">
+                <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md hover:opacity-90 transition cursor-pointer" onclick="openModal('assets/9.jpg')">
                     <img src="assets/9.jpg" alt="Gallery Image 6" class="object-cover w-full h-full transform hover:scale-105 transition duration-500">
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 hidden opacity-0" onclick="closeModal()">
+        <button class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none z-50" onclick="closeModal()">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        
+        <!-- Navigation Buttons -->
+        <button class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 focus:outline-none z-50" onclick="event.stopPropagation(); prevImage()">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 focus:outline-none z-50" onclick="event.stopPropagation(); nextImage()">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+
+        <img id="modalImage" src="" alt="Full size image" class="modal-content rounded-lg shadow-2xl" onclick="event.stopPropagation()">
+    </div>
 
     <!-- Footer -->
     <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-12 transition-colors duration-300">
@@ -292,10 +323,7 @@
                     <p class="text-sm text-gray-500" data-i18n="footer-slogan">简单，极致，只为看图。</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300">
-                        <span class="sr-only">GitHub</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
-                    </a>
+                    <a href="privacy.html" data-i18n="nav-privacy" class="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300">隐私政策</a>
                 </div>
             </div>
             <div class="mt-8 border-t border-gray-200 dark:border-gray-800 pt-8 text-center">
@@ -336,9 +364,90 @@
             }
         });
 
+        // Modal Logic
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        
+        // Define gallery images
+        const galleryImages = [
+            'assets/1.jpg',
+            'assets/2.jpg',
+            'assets/3.jpg',
+            'assets/7.jpg',
+            'assets/8.jpg',
+            'assets/9.jpg'
+        ];
+        let currentImageIndex = 0;
+
+        function openModal(imageSrc) {
+            // Find index of clicked image
+            currentImageIndex = galleryImages.indexOf(imageSrc);
+            if (currentImageIndex === -1) {
+                // Fallback if not found (shouldn't happen with correct usage)
+                currentImageIndex = 0;
+            }
+            updateModalImage();
+            
+            modal.classList.remove('hidden');
+            // Small delay to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function updateModalImage() {
+            modalImage.src = galleryImages[currentImageIndex];
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateModalImage();
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            updateModalImage();
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modalImage.src = '';
+            }, 300); // Wait for transition
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close modal on escape key and navigation with arrow keys
+        document.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('hidden')) return;
+
+            if (e.key === 'Escape') {
+                closeModal();
+            } else if (e.key === 'ArrowLeft') {
+                prevImage();
+            } else if (e.key === 'ArrowRight') {
+                nextImage();
+            }
+        });
+
         // Language Toggle Logic
         const langToggleBtn = document.getElementById('lang-toggle');
-        let currentLang = localStorage.getItem('lang') || 'zh-CN';
+        
+        // Determine default language:
+        // 1. Check local storage
+        // 2. Check browser language (navigator.language)
+        // 3. Default to 'zh-CN'
+        let currentLang = localStorage.getItem('lang');
+        if (!currentLang) {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('zh')) {
+                currentLang = 'zh-CN';
+            } else {
+                currentLang = 'en';
+            }
+        }
 
         function setLanguage(lang) {
             currentLang = lang;
