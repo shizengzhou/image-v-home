@@ -55,6 +55,9 @@
                 'safety-l2': '不用担心一不小心修改了原图',
                 'safety-l3': '安心把设备交给老人或孩子浏览照片',
                 'gallery-title': '精彩预览',
+                'faq-title': '常见问题',
+                'faq-q1': '为什么打开文件后只能看到一张图？',
+                'faq-a1': '由于 macOS 沙盒（Sandbox）的安全限制，App 默认只能访问您主动打开的单个文件。如果您想浏览文件夹内的所有图片，请使用“打开目录”功能来授权整个文件夹。',
                 'nav-privacy': '隐私政策',
                 'footer-slogan': '简单，极致，只为看图。',
                 'footer-copyright': '&copy; 2026 ImageV. All rights reserved.'
@@ -91,6 +94,9 @@
                 'safety-l2': 'No worry about accidentally modifying original files',
                 'safety-l3': 'Safely hand your device to elders or kids to browse photos',
                 'gallery-title': 'Gallery Preview',
+                'faq-title': 'FAQ',
+                'faq-q1': 'Why can I only see one image after opening a file?',
+                'faq-a1': 'Due to macOS Sandbox security restrictions, the App can only access the specific file you opened. To browse all images in a folder, please use the "Open Directory" function to authorize the entire folder.',
                 'nav-privacy': 'Privacy Policy',
                 'footer-slogan': 'Simple, Ultimate, Just for Viewing.',
                 'footer-copyright': '&copy; 2026 ImageV. All rights reserved.'
@@ -312,6 +318,21 @@
 
         <img id="modalImage" src="" alt="Full size image" class="modal-content rounded-lg shadow-2xl" onclick="event.stopPropagation()">
     </div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white" data-i18n="faq-title">常见问题</h2>
+            <div class="space-y-8">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-semibold mb-3 text-primary" data-i18n="faq-q1">为什么打开文件后只能看到一张图？</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="faq-a1">
+                        由于 macOS 沙盒（Sandbox）的安全限制，App 默认只能访问您主动打开的单个文件。如果您想浏览文件夹内的所有图片，请使用“打开目录”功能来授权整个文件夹。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-12 transition-colors duration-300">
