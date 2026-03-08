@@ -58,6 +58,8 @@
                 'faq-title': '常见问题',
                 'faq-q1': '为什么打开文件后只能看到一张图？',
                 'faq-a1': '由于 macOS 沙盒（Sandbox）的安全限制，App 默认只能访问您主动打开的单个文件。如果您想浏览文件夹内的所有图片，请使用“打开目录”功能来授权整个文件夹。',
+                'faq-q2': '如果您在 1.0.0 版本中有“最近打开”记录，升级后为什么需要清空它？',
+                'faq-a2': '如果您在 1.0.0 版本中已经产生了“最近打开”的历史记录，由于我们在新版本中对底层代码进行了深度优化，导致部分数据结构发生了不兼容的改进。为了确保功能正常，建议您在升级后手动清空一次最近打开记录。',
                 'nav-privacy': '隐私政策',
                 'footer-slogan': '简单，极致，只为看图。',
                 'footer-copyright': '&copy; 2026 ImageV. All rights reserved.'
@@ -97,6 +99,8 @@
                 'faq-title': 'FAQ',
                 'faq-q1': 'Why can I only see one image after opening a file?',
                 'faq-a1': 'Due to macOS Sandbox security restrictions, the App can only access the specific file you opened. To browse all images in a folder, please use the "Open Directory" function to authorize the entire folder.',
+                'faq-q2': 'If I have "Recent Opened" records in version 1.0.0, why do I need to clear them after upgrading?',
+                'faq-a2': 'If you have a "Recent Opened" history from version 1.0.0, we recommend manually clearing it once after upgrading. This is because we have deeply optimized the underlying code in the new version, which involved some incompatible changes to the data structure. Clearing it ensures everything works correctly.',
                 'nav-privacy': 'Privacy Policy',
                 'footer-slogan': 'Simple, Ultimate, Just for Viewing.',
                 'footer-copyright': '&copy; 2026 ImageV. All rights reserved.'
@@ -328,6 +332,12 @@
                     <h3 class="text-xl font-semibold mb-3 text-primary" data-i18n="faq-q1">为什么打开文件后只能看到一张图？</h3>
                     <p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="faq-a1">
                         由于 macOS 沙盒（Sandbox）的安全限制，App 默认只能访问您主动打开的单个文件。如果您想浏览文件夹内的所有图片，请使用“打开目录”功能来授权整个文件夹。
+                    </p>
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-semibold mb-3 text-primary" data-i18n="faq-q2">如果您在 1.0.0 版本中有“最近打开”记录，升级后为什么需要清空它？</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="faq-a2">
+                        如果您在 1.0.0 版本中已经产生了“最近打开”的历史记录，由于我们在新版本中对底层代码进行了深度优化，导致部分数据结构发生了不兼容的改进。为了确保功能正常，建议您在升级后手动清空一次最近打开记录。
                     </p>
                 </div>
             </div>
