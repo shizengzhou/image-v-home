@@ -515,7 +515,10 @@
 
                     // Special handling for links (Purchase links)
                     if (['nav-download', 'hero-btn-download'].includes(key)) {
-                        element.href = i18n[lang]['purchase-link'];
+                        const linkElement = element.closest('a');
+                        if (linkElement) {
+                            linkElement.href = i18n[lang]['purchase-link'];
+                        }
                     }
 
                     // Check if it has child elements that we should preserve (like svg icons in safety list)
